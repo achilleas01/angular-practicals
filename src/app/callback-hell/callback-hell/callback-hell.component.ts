@@ -25,7 +25,16 @@ export class CallbackHellComponent implements OnInit {
   //   })
   // })
   ngOnInit(): void {
-    this.data = this.service
+    this.data = this.service.getUser().subscribe((user) => {
+      console.log('user', user);
+      this.service.getBlogById(user.id).subscribe((blog) => {
+        console.log('blog', blog);
+        this.service.getCategoryByBlogId(blog.postId).subscribe((category) => {
+          console.log('category', category);
+        });
+      });
+    });
+    /* this.data = this.service
       .getUser()
       .pipe(
         tap((user) => console.log(user)), // to set some variables
@@ -34,8 +43,8 @@ export class CallbackHellComponent implements OnInit {
         concatMap((blog) => this.service.getCategoryByBlogId(blog.postId)) // higher order operator
       )
       .subscribe((category) => console.log('category', category));
-
-    this.data = this.service
+   */
+    /*  this.data = this.service
       .getUser()
       .pipe(
         tap((user) => console.log(user)), // to set some variables
@@ -53,6 +62,6 @@ export class CallbackHellComponent implements OnInit {
         tap((blog) => console.log(blog)), // to set some variables
         mergeMap((blog) => this.service.getCategoryByBlogId(blog.postId)) // higher order operator
       )
-      .subscribe((category) => console.log('category', category));
+      .subscribe((category) => console.log('category', category)); */
   }
 }
