@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap, tap } from 'rxjs/operators';
-import { District } from 'src/app/constants/constant';
-import { State } from 'src/app/models/models';
-import { DataService } from 'src/app/services/data.service';
+import { District } from '../../constants/constant';
+import { State } from '../../models/models';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search-category',
   templateUrl: './search-category.component.html',
-  styleUrls: ['./search-category.component.scss']
+  styleUrls: ['./search-category.component.scss'],
 })
 export class SearchCategoryComponent implements OnInit {
-
-  constructor(private service: DataService) { }
+  constructor(private service: DataService) {}
   districts!: District[];
 
   ngOnInit(): void {
@@ -25,54 +24,21 @@ export class SearchCategoryComponent implements OnInit {
     //   }
     // )
 
-    this.service.getStateById(1).pipe(
-      tap((state:State)=>console.log(state)),
-      switchMap((state:State)=>this.service.getDistrictsByStateId(state.id)),
-      tap((districts:District[])=>{
-        console.log(districts);
-        this.districts = districts;
-      }),
-    ).subscribe()
-
+    this.service
+      .getStateById(1)
+      .pipe(
+        tap((state: State) => console.log(state)),
+        switchMap((state: State) =>
+          this.service.getDistrictsByStateId(state.id)
+        ),
+        tap((districts: District[]) => {
+          console.log(districts);
+          this.districts = districts;
+        })
+      )
+      .subscribe();
   }
-
-  
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // filterStates(target: EventTarget | null) {
 //   const searchInputElement = target as HTMLInputElement;

@@ -1,15 +1,23 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { fromEvent, Observable, of } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, mergeMap, startWith, switchMap, tap } from 'rxjs/operators';
-import { State } from 'src/app/models/models';
-import { DataService } from 'src/app/services/data.service';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  mergeMap,
+  startWith,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
+import { State } from '../../models/models';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search-dialog',
   templateUrl: './search-dialog.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class SearchDialogComponent implements OnInit {
   @ViewChild('search', { static: true }) search!: ElementRef;
@@ -25,10 +33,7 @@ export class SearchDialogComponent implements OnInit {
       )
       .subscribe((res) => {
         this.States = res;
-        console.log(res)
+        console.log(res);
       });
   }
-
 }
-
-
