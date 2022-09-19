@@ -26,7 +26,7 @@ export interface Stats {
   number: number;
   weight: string;
   marketRate: string;
-  value: string;
+  value?: string;
 }
 
 export interface BranchingData {
