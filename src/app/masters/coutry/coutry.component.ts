@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RightsService } from 'src/app/services/rights.service';
-import { Master, Rights } from 'src/app/models/models';
-import { DataService } from 'src/app/services/data.service';
+import { RightsService } from '../../services/rights.service';
+import { Master, Rights } from '../../models/models';
+import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Statistics } from 'src/app/constants/constant';
-import { Stats } from 'src/app/models/models';
+import { Statistics } from '../../constants/constant';
+import { Stats } from '../../models/models';
 
 @Component({
   selector: 'app-ng-container-example',
@@ -10,6 +10,5 @@ import { Stats } from 'src/app/models/models';
 export class NgContainerExampleComponent implements OnInit {
   constructor() {}
   data: Stats[] = Statistics;
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

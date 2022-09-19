@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BranchingDataObj } from 'src/app/constants/constant';
+import { BranchingDataObj } from '../../constants/constant';
 
 @Component({
   selector: 'app-branching',
