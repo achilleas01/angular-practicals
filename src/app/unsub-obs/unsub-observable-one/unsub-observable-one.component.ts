@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { concatMap, takeUntil, tap } from 'rxjs/operators';
-import { Blog } from 'src/app/models/models';
-import { DataService } from 'src/app/services/data.service';
+import { Blog } from '../../models/models';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-unsub-observable-one',
@@ -15,7 +15,7 @@ export class UnsubObservableOneComponent implements OnInit {
 
   ngOnInit(): void {
     this.blog$ = this.service.getUser().pipe(
-      concatMap((user) => this.service.getBlogById(user.id)),
+      concatMap((user) => this.service.getBlogById(user.id))
       // tap((blog) => (this.blog = blog))
     );
   }
